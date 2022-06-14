@@ -19,5 +19,65 @@
     <li><a href="/java-jakarta-jee/tarea_1?nombre=gus&apellido=mar">webapp-tarea1</a></li>
 </ul>
 
+
+<hr>
+<h3>Formulario</h3>
+<form action="/java-jakarta-jee/formulario" method="post">
+    <div>
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre">
+    </div>
+    <div>
+        <label for="apellido">Apellido</label>
+        <input type="text" name="apellido" id="apellido">
+    </div>
+    <div>
+        <label for="correo">Correo</label>
+        <input type="email" name="correo" id="correo">
+    </div>
+    <div>
+        <label for="contrasena">Contraseña</label>
+        <input type="password" name="contrasena" id="contrasena">
+    </div>
+    <div>
+        <label for="edad">Edad</label>
+        <input type="number" name="edad" id="edad">
+    </div>
+    <div>
+        <label for="pais">Pais</label>
+        <select name="pais" id="pais">
+            <option value="CO">Colombia</option>
+            <option value="USA">EE UU</option>
+            <option value="ES">España</option>
+        </select>
+    </div>
+    <div>
+        <label for="lenguajes">Lenguajes programacion</label>
+        <select name="lenguajes" id="lenguajes" multiple>
+            <option value="java">Java</option>
+            <option value="php">PHP</option>
+            <option value="python">Python</option>
+            <option value="js">Javascript</option>
+        </select>
+    </div>
+    <div>
+        <label>Roles</label>
+        <div>
+            <input type="checkbox" name="roles" value="ADMIN">
+            <label>Administrador</label>
+        </div>
+        <div>
+            <input type="checkbox" name="roles" value="MODERADOR">
+            <label>Moderador</label>
+        </div>
+        <div>
+            <input type="checkbox" name="roles" value="USUARIO">
+            <label>Usuario</label>
+        </div>
+    </div>
+    <hr>
+    <input type="submit" value="Enviar">
+</form>
+
 </body>
 </html>

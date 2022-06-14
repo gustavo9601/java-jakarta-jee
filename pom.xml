@@ -28,7 +28,11 @@
     </dependencies>
 
 
+
     <build>
+        <!--Etiqueta que define el nombre al generar el WAR compilado-->
+        <finalName>webapp-jakarta-ee</finalName>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
