@@ -8,10 +8,10 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/cabeceras/inicio")
-public class InicioCabeceras extends HttpServlet {
+@WebServlet("/cabeceras/redirecion_a_hora_actualizada_refresh")
+public class RedirigirServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/cabeceras/inicio.jsp").forward(req, resp);
+        resp.sendRedirect("/java-jakarta-jee/cabeceras/hora_actualizada_refresh");
     }
 }
