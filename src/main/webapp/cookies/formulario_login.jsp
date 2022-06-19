@@ -4,7 +4,7 @@
     <title>Formulario Login</title>
 </head>
 <body>
-<form action="/java-jakarta-jee/cabeceras/estados_http" method="post">
+<form action="/java-jakarta-jee/cookies/login" method="post">
     <label for="usuario">Usuario:</label>
     <input type="text" name="usuario" id="usuario"/>
     <br/>
