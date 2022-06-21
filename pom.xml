@@ -38,10 +38,7 @@
             <version>2.13.3</version>
         </dependency>
 
-
     </dependencies>
-
-
 
     <build>
         <!--Etiqueta que define el nombre al generar el WAR compilado-->
