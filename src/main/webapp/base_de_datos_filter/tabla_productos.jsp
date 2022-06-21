@@ -1,11 +1,6 @@
 <%@ page import="java.util.List" %>
-<%@ page import="org.gmarquez.webapp.base_de_datos_filters.models.Producto" %><%--
-  Created by IntelliJ IDEA.
-  User: ingegus
-  Date: 15/06/2022
-  Time: 11:18 p. m.
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="org.gmarquez.webapp.base_de_datos_filters.models.Producto" %>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>

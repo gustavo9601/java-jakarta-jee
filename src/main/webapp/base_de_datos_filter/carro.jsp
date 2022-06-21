@@ -1,6 +1,6 @@
 <%@ page import="java.util.List" %>
-<%@ page import="org.gmarquez.webapp.listeners.models.Carro" %>
-<%@ page import="org.gmarquez.webapp.listeners.models.ItemCarro" %><%--
+<%@ page import="org.gmarquez.webapp.base_de_datos_filters.models.Carro" %>
+<%@ page import="org.gmarquez.webapp.base_de_datos_filters.models.ItemCarro" %><%--
   Created by IntelliJ IDEA.
   User: ingegus
   Date: 18/06/2022

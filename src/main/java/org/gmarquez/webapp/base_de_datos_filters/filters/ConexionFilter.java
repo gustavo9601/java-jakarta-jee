@@ -23,11 +23,13 @@ public class ConexionFilter implements Filter {
                 connection.setAutoCommit(false);
             }
 
+
             try {
                 servletRequest.setAttribute("connection", connection); // Creamos el atributo para que sea accesible desde cualquier request
+                System.out.println("connection in conexionFilter=\t" + connection);
                 filterChain.doFilter(servletRequest, servletResponse);
                 connection.commit();
-                // Esucaha la exepcion padre y la personalizada
+                // Escucha la exepcion padre y la personalizada
             } catch (SQLException | ServiceJdbcException e) {
                 connection.rollback();
                 ((HttpServletResponse) servletResponse).sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error en la base de datos, error: " + e.getMessage());
@@ -36,6 +38,7 @@ public class ConexionFilter implements Filter {
 
 
         } catch (SQLException e) {
+            System.out.println("Error en la conexion a la base de datos");
             e.printStackTrace();
         }
 

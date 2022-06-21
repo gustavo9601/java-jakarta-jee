@@ -10,7 +10,6 @@ import org.gmarquez.webapp.base_de_datos_filters.models.Carro;
 import org.gmarquez.webapp.base_de_datos_filters.models.ItemCarro;
 import org.gmarquez.webapp.base_de_datos_filters.models.Producto;
 import org.gmarquez.webapp.base_de_datos_filters.services.ProductoService;
-import org.gmarquez.webapp.base_de_datos_filters.services.ProductoServiceImlp;
 import org.gmarquez.webapp.base_de_datos_filters.services.ProductoServiceJdbcImpl;
 
 
@@ -24,7 +23,7 @@ public class AgregarItemCarroServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Long id = Long.parseLong(req.getParameter("id"));
         System.out.println("id = " + id);
-        Connection connection = (Connection) req.getServletContext().getAttribute("connection");
+        Connection connection = (Connection) req.getAttribute("connection");
         ProductoService productoService = new ProductoServiceJdbcImpl(connection);
 
         Optional<Producto> productoEncontrado = productoService.porId(id);

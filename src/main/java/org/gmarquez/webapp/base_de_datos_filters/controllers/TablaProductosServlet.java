@@ -31,7 +31,9 @@ public class TablaProductosServlet extends HttpServlet {
             resp.setContentType("text/html;charset=UTF-8");
 
             // Capturamos la conexxion del atributo seteado en el filtro
-            Connection connection = (Connection) req.getServletContext().getAttribute("connection");
+            Connection connection = (Connection) req.getAttribute("connection");
+            System.out.println("conexion en tabla=\t" + connection);
+
             ProductoService productoService = new ProductoServiceJdbcImpl(connection);
             List<Producto> productos = productoService.listar();
 

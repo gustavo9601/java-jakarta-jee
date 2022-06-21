@@ -8,13 +8,13 @@ import org.gmarquez.webapp.listeners.models.Carro;
 
 
 /*
-*
-* Los Listeners cumplen la funcion similar a un Middleware, escuchando eventos
-* que ocurren a lo largo del contexto de ejecucion de la aplicacion (ciclo de vida).
-*
-* - Los listeners se aplicaran a cualquier servlet
-* - Los filtros aplicaran sobre el ciclo de vida de los Request, y permite especificar a Servlet afectar
-* */
+ *
+ * Los Listeners cumplen la funcion similar a un Middleware, escuchando eventos
+ * que ocurren a lo largo del contexto de ejecucion de la aplicacion (ciclo de vida).
+ *
+ * - Los listeners se aplicaran a cualquier servlet
+ * - Los filtros aplicaran sobre el ciclo de vida de los Request, y permite especificar a Servlet afectar
+ * */
 
 // @WebListener(nombre del listener)
 @WebListener
@@ -72,9 +72,9 @@ public class AplicacionListener implements ServletContextListener,
         this.servletContext.log("Creando la sesion");
 
         // Se crea el atributo de sesion, que se creara por cada sesion
-        Carro carro = new Carro();
-        se.getSession().setAttribute("carro", carro);
-        this.servletContext.log("Sesion carro = " + carro);
+        // Carro carro = new Carro();
+        //  se.getSession().setAttribute("carro", carro);
+        // this.servletContext.log("Sesion carro = " + carro);
     }
 
     @Override
