@@ -21,6 +21,7 @@
         <th>Descripcion</th>
         <th>Categoria</th>
         <th>Precio</th>
+        <th>Fecha creacion</th>
     </thead>
     <tbody>
         <%
@@ -31,6 +32,7 @@
             out.println("<td>" + producto.getDescripcion() + "</td>");
             out.println("<td>" + producto.getPrecio() + "</td>");
             out.println("<td>" + producto.getCategoria().getNombre() + "</td>");
+            out.println("<td>" + producto.getFechaRegistro()+ "</td>");
             out.println("<td><a href='"+request.getContextPath() + "/base_de_datos_filter/agregar-item-carro-servlet?id="+ producto.getId()+ "'>Agregar al carrito</td>");
             out.println("</tr>");
 

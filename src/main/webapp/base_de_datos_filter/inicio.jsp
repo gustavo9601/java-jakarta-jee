@@ -23,5 +23,8 @@
 <p>
     <a href="<%=request.getContextPath()%>/base_de_datos_filter/tabla_productos">Tabla productos</a>
 </p>
+<p>
+    <a href="<%=request.getContextPath()%>/base_de_datos_filter/producto_form">Crear productos</a>
+</p>
 </body>
 </html>

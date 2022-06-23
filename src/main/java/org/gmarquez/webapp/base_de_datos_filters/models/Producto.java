@@ -1,21 +1,26 @@
 package org.gmarquez.webapp.base_de_datos_filters.models;
 
+import java.time.LocalDate;
+
 public class Producto {
     private long id;
+    private String sku;
     private String nombre;
     private String descripcion;
     private double precio;
+    private LocalDate fechaRegistro;
 
     private Categoria categoria;
 
     public Producto() {
     }
 
-    public Producto(Long id, String nombre, String descripcion, double precio) {
+    public Producto(Long id, String sku, String nombre, String descripcion, double precio) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.precio = precio;
         this.id = id;
+        this.sku = sku;
     }
 
     public Long getId() {
@@ -56,6 +61,22 @@ public class Producto {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public LocalDate getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    public void setFechaRegistro(LocalDate fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
+
+    public String getSku() {
+        return sku;
+    }
+
+    public void setSku(String sku) {
+        this.sku = sku;
     }
 
     @Override
