@@ -1,7 +1,11 @@
-<%@ page import="java.util.List" %>
+<%@ page import="java.util.Optional" %>
 <%@ page import="org.gmarquez.webapp.base_de_datos_filters.models.Producto" %>
-
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%--Importa la libreria core y con su prefijo, para poder ser llamado como etiqueta--%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html>
 <head>
     <title>Exportando productos</title>
@@ -10,9 +14,14 @@
 
 <%
     List<Producto> productos = (List<Producto>) request.getAttribute("productos");
+    Optional<String> username = (Optional<String>) request.getAttribute("username");
 %>
 
-<h1>Bienvenido <% request.getAttribute("nombreUsuario"); %></h1>
+
+<c:if test="${username.isPresent()}">
+    <h1>Bienvenido ${username.get()}</h1>
+</c:if>
+
 <table>
     <thead>
     <tr>
@@ -25,7 +34,8 @@
         <th>Fecha creacion</th>
     </thead>
     <tbody>
-        <%
+
+        <%--<%
         for (Producto producto : productos) {
             out.println("<tr>");
             out.println("<td>" + producto.getId() + "</td>");
@@ -41,7 +51,29 @@
             out.println("</tr>");
 
         }
-    %>
+    %>--%>
+
+
+    <c:forEach var="producto" items="${productos}">
+    <tr>
+        <td><c:out value="${producto.getId()}"></c:out></td>
+        <td><c:out value="${producto.getSku()}"></c:out></td>
+        <td><c:out value="${producto.getNombre()}"></c:out></td>
+        <td><c:out value="${producto.getDescripcion()}"></c:out></td>
+        <td><c:out value="${producto.getCategoria().getNombre()}"></c:out></td>
+        <td><c:out value="${producto.getPrecio()}"></c:out></td>
+        <td><c:out value="${producto.getFechaRegistro()}"></c:out></td>
+
+        <td><a href="${pageContext.request.contextPath}/base_de_datos_filter/agregar-item-carro-servlet?id=${producto.getId()}">Agregar al carrito</a></td>
+        <td><a href="${pageContext.request.contextPath}/base_de_datos_filter/producto_form?id=${producto.getId()}">Editar</a></td>
+        <td><a href="${pageContext.request.contextPath}/base_de_datos_filter/producto_eliminar?id=${producto.getId()}">Eliminar</a></td>
+
+
+
+    </tr>
+    </c:forEach>
+
+
     <tbody/>
     <table/>
 
