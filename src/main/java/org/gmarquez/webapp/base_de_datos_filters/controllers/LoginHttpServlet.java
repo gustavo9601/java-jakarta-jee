@@ -6,16 +6,19 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import org.gmarquez.webapp.base_de_datos_filters.repositories.UsuarioRepository;
+import org.gmarquez.webapp.base_de_datos_filters.repositories.UsuarioRepositoryImpl;
+import org.gmarquez.webapp.base_de_datos_filters.services.UsuarioService;
+import org.gmarquez.webapp.base_de_datos_filters.services.UsuarioServiceImpl;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.Optional;
 
 
 @WebServlet("/base_de_datos_filter/login")
 public class LoginHttpServlet extends HttpServlet {
 
-    final static String USUARIO = "g";
-    final static String PASSWORD = "1";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -37,7 +40,11 @@ public class LoginHttpServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String usuario = req.getParameter("usuario");
         String password = req.getParameter("password");
-        if (usuario.equals(USUARIO) && password.equals(PASSWORD)) {
+
+        Connection connection = (Connection) req.getAttribute("connection");
+        UsuarioService usuarioService = new UsuarioServiceImpl(connection);
+
+        if (usuarioService.login(usuario, password).isPresent()) {
 
             HttpSession session = req.getSession(); // Obtenemos la sesion
             session.setAttribute("nombreUsuario", usuario); //  guardamos la nueva variable

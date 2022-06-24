@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpServletResponse;
 import org.gmarquez.webapp.base_de_datos_filters.exepcions.ServiceJdbcException;
 import org.gmarquez.webapp.base_de_datos_filters.util.ConexionBaseDatos;
+import org.gmarquez.webapp.base_de_datos_filters.util.ConexionBaseDatosPool;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -16,7 +17,7 @@ public class ConexionFilter implements Filter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
 
-        try (Connection connection = ConexionBaseDatos.getConnection()) {
+        try (Connection connection = ConexionBaseDatosPool.getConnection()) {
 
             if (connection.getAutoCommit()) {
                 // Desactivamos el autocommit para poder hacer un rolback dado el casofalloe
