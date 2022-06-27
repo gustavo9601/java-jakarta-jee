@@ -45,6 +45,13 @@
             <version>2.0.0</version>
         </dependency>
 
+        <!--Dependecia para manejar CDI inyeccion de dependencia para tomcat-->
+        <dependency>
+            <groupId>org.jboss.weld.servlet</groupId>
+            <artifactId>weld-servlet-core</artifactId>
+            <version>4.0.1.SP1</version>
+        </dependency>
+
 
     </dependencies>
 
