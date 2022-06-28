@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 @ApplicationScoped  // Permitimos que la clase se pueda inyectar y sera una instancia a nivel aplicacion
 public class ProductoRepositoryJdbcImpl implements Repository<Producto> {
@@ -18,10 +19,15 @@ public class ProductoRepositoryJdbcImpl implements Repository<Producto> {
     @Named("conexionBaseDatosBean")
     private Connection connection;  // inyectamos la conexion
 
+    @Inject
+    @Named("loggerBean")
+    private Logger loggerBean;
 
     @Override
     public List<Producto> listar() throws SQLException {
         List<Producto> productos = new ArrayList<>();
+
+        this.loggerBean.info("Listando productos");
 
         try (Statement statement = this.connection.createStatement()) {
             ResultSet resultSet = statement.executeQuery(
@@ -29,6 +35,10 @@ public class ProductoRepositoryJdbcImpl implements Repository<Producto> {
             );
 
             while (resultSet.next()) {
+
+                this.loggerBean.info("Leyendo producto");
+                this.loggerBean.info(this.getProducto(resultSet).toString());
+
                 productos.add(this.getProducto(resultSet));
             }
 
@@ -90,7 +100,7 @@ public class ProductoRepositoryJdbcImpl implements Repository<Producto> {
             statement.setLong(4, producto.getCategoria().getId());
             if (producto.getId() != null && producto.getId() > 0) {
                 statement.setLong(5, producto.getId());
-            }else{
+            } else {
                 statement.setDate(5, Date.valueOf(producto.getFechaRegistro()));
             }
             statement.executeUpdate();

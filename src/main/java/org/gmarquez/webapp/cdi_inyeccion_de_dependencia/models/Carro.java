@@ -1,19 +1,45 @@
 package org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models;
 
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import jakarta.enterprise.context.SessionScoped;
+import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.config.CarroCompra;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 
 // Requeriere que la clase tenga un constructor sin recibir parametros
-@SessionScoped // Por cada sesion tendra una nueva inyeccion
-@Named("carro")  // por defecto sera el nombre de la clase, si le pasamos parametro tomara ese nombre
+// @SessionScoped // Por cada sesion tendra una nueva inyeccion
+// @Named("carro")  // por defecto sera el nombre de la clase, si le pasamos parametro tomara ese nombre
+
+@CarroCompra
 public class Carro implements Serializable { // Para poder injectarse se debe impelemtar la itnerazcion Serializable
     private List<ItemCarro> itemCarros;
+
+    @Inject
+    @Named("loggerBean")
+    private transient Logger loggerBean; // transient // No se guarda en la sesion, solo se guarda en el bean ya que no se puede serializar
+
+    // Se ejecuta al inicio del constructor, en el ciclo de vida del CDI, cuando es instanciado
+    // Util para realizar actividades de inicializacion, exepcto cuando el constructor reciba parametros
+    @PostConstruct
+    public void inicializarCarroCDI(){
+        this.loggerBean.info(" =========== Inicializando Carro Bean CDI ===========");
+    }
+
+    // Se ejecuta al finalizar el ciclo de vida del CDI, cuando se destruye la instancia
+    // Util para realizar actividades de limpieza, exepcto cuando el constructor reciba parametros
+    @PreDestroy
+    public void destruyendoCarroCDI(){
+        this.loggerBean.info("=========== Destruyendo Carro Bean CDI ===========");
+    }
+
 
     public Carro() {
         this.itemCarros = new ArrayList<>();

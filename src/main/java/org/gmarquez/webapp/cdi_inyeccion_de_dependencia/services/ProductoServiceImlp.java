@@ -1,5 +1,6 @@
 package org.gmarquez.webapp.cdi_inyeccion_de_dependencia.services;
 
+import jakarta.enterprise.inject.Alternative;
 import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.Categoria;
 import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.Producto;
 
@@ -7,6 +8,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
+// Con esta anotacion le especificamos al CDI que no sea tenida en cuenta a menos que que se use textualmente con el @Named()
+@Alternative
 public class ProductoServiceImlp implements ProductoService {
     @Override
     public List<Producto> listar() {
