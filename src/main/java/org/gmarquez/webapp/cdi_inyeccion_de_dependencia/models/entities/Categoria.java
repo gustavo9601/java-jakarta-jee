@@ -1,8 +1,16 @@
-package org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models;
+package org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Categoria {
 
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nombre;
 
     public Categoria() {
@@ -13,7 +21,7 @@ public class Categoria {
         this.nombre = nombre;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 

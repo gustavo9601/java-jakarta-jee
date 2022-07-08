@@ -3,11 +3,10 @@ package org.gmarquez.webapp.cdi_inyeccion_de_dependencia.services;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.exepcions.ServiceJdbcException;
-import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.Usuario;
+import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.entities.Usuario;
+import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.repositories.RepositoryJPA;
 import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.repositories.UsuarioRepository;
-import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.repositories.UsuarioRepositoryImpl;
 
-import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Optional;
 
@@ -21,7 +20,7 @@ public class UsuarioServiceImpl implements UsuarioService {
     // Se deberia usar un calificador con Named para indicar cual es la clase que debe devolver
 
     @Inject
-    public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
+    public UsuarioServiceImpl(@RepositoryJPA UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
     }
 
@@ -30,7 +29,7 @@ public class UsuarioServiceImpl implements UsuarioService {
         try {
             return Optional.ofNullable(this.usuarioRepository.porUsername(username))
                     .filter(usuario -> usuario.getPassword().equals(password)); // Comparacion del password
-        } catch (SQLException e) {
+        } catch (Exception e) {
             throw new ServiceJdbcException(e.getMessage(), e.getCause());
         }
     }

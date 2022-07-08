@@ -1,8 +1,8 @@
 package org.gmarquez.webapp.cdi_inyeccion_de_dependencia.services;
 
 import jakarta.enterprise.inject.Alternative;
-import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.Categoria;
-import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.Producto;
+import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.entities.Categoria;
+import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.entities.Producto;
 
 import java.util.Arrays;
 import java.util.List;

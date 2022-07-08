@@ -8,12 +8,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.Producto;
+import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.entities.Producto;
 import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.services.ProductoService;
-import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.services.ProductoServiceJdbcImpl;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.util.List;
 import java.util.Optional;
 

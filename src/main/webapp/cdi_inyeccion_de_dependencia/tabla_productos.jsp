@@ -1,5 +1,5 @@
 <%@ page import="java.util.Optional" %>
-<%@ page import="org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.Producto" %>
+<%@ page import="org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.entities.Producto" %>
 <%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 

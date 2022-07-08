@@ -1,7 +1,7 @@
 <%@ page import="java.util.List" %>
-<%@ page import="org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.Categoria" %>
+<%@ page import="org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.entities.Categoria" %>
 <%@ page import="java.util.Map" %>
-<%@ page import="org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.Producto" %>
+<%@ page import="org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.entities.Producto" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>

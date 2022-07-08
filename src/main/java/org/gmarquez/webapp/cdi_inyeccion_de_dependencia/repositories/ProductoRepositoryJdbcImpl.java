@@ -3,10 +3,9 @@ package org.gmarquez.webapp.cdi_inyeccion_de_dependencia.repositories;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
-import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.Categoria;
-import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.Producto;
+import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.entities.Categoria;
+import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.entities.Producto;
 
-import java.io.Serializable;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;

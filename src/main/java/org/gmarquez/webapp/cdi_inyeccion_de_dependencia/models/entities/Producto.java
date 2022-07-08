@@ -1,15 +1,24 @@
-package org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models;
+package org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.entities;
+
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "productos")
 public class Producto {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String sku;
     private String nombre;
     private String descripcion;
     private double precio;
+    @Column(name = "fecha_registro")
     private LocalDate fechaRegistro;
 
+    // Muchos productos tienen una categoria
+    @ManyToOne(fetch = FetchType.LAZY)
     private Categoria categoria;
 
     public Producto() {

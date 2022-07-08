@@ -3,7 +3,7 @@ package org.gmarquez.webapp.cdi_inyeccion_de_dependencia.repositories;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
-import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.Usuario;
+import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.entities.Usuario;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

@@ -1,6 +1,8 @@
 package org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models;
 
 
+import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.entities.Producto;
+
 import java.util.Objects;
 
 public class ItemCarro {

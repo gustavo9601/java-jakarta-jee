@@ -3,7 +3,6 @@ package org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-import jakarta.enterprise.context.SessionScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.config.CarroCompra;

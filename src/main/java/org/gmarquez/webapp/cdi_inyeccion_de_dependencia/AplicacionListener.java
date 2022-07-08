@@ -7,7 +7,6 @@ import jakarta.servlet.ServletRequestListener;
 import jakarta.servlet.annotation.WebListener;
 import jakarta.servlet.http.HttpSessionEvent;
 import jakarta.servlet.http.HttpSessionListener;
-import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.Carro;
 
 
 /*

@@ -1,6 +1,14 @@
-package org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models;
+package org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.entities;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Usuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String username;
     private String password;

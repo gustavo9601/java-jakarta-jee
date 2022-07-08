@@ -7,13 +7,11 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.Categoria;
-import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.Producto;
+import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.entities.Categoria;
+import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.models.entities.Producto;
 import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.services.ProductoService;
-import org.gmarquez.webapp.cdi_inyeccion_de_dependencia.services.ProductoServiceJdbcImpl;
 
 import java.io.IOException;
-import java.sql.Connection;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
